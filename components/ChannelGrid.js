@@ -34,13 +34,6 @@ export default class ChannelGrids extends React.Component{
             box-shadow: 0px 2px 6px rgba(0,0,0,0.15);
             width: 100%;
           }
-          h2 {
-            padding: 5px;
-            font-size: 0.9em;
-            font-weight: 600;
-            margin: 0;
-            text-align: center;
-          }
         `}</style>
 
       </div>

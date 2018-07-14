@@ -16,7 +16,7 @@ export default class extends React.Component{
   render() {
     const { clip } = this.props
     return (
-      <Layout>
+      <Layout title={ clip.title }>
 
         <div className='modal'>
           <div className='clip'>
@@ -90,7 +90,6 @@ export default class extends React.Component{
             margin-top: 2em;
             width: 100%;
           }
-
           .modal {
             position: fixed;
             top: 0;
@@ -98,14 +97,6 @@ export default class extends React.Component{
             right: 0;
             bottom: 0;
             z-index: 99999;
-          }
-        `}</style>
-
-        <style jsx global>{`
-          body {
-            margin: 0;
-            font-family: system-ui;
-            background: white;
           }
         `}</style>
         
