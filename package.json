@@ -1,0 +1,32 @@
+{
+  "name": "podcasts",
+  "version": "1.0.0",
+  "description": "Podcasts Application developed with Next.js and React",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WilliamVelazquez/podcasts.git"
+  },
+  "keywords": [
+    "react",
+    "next",
+    "podcasts",
+    "platzi"
+  ],
+  "author": "William Velazquez <william.velazquez.a@gmail.com> (https://twitter.com/WilliamVlazquez)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/WilliamVelazquez/podcasts/issues"
+  },
+  "homepage": "https://github.com/WilliamVelazquez/podcasts#readme",
+  "dependencies": {
+    "next": "6.1.1",
+    "react": "16.4.1",
+    "react-dom": "16.4.1"
+  }
+}
