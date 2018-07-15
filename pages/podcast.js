@@ -1,20 +1,38 @@
 import Link from 'next/link'
 
+import Error from './_error'
 import Layout from '../components/Layout'
 
 export default class extends React.Component{
 
-  static async getInitialProps({ query }){
+  static async getInitialProps({ query, res }){
     let idPodcast = query.id
-    let reqClip = await fetch(`https://api.audioboom.com/audio_clips/${idPodcast}.mp3`)
-    let clip = (await reqClip.json()).body.audio_clip
-    //let audio = dataAudio.body.audio_clip//.urls.high_mp3
+    
+    try{
+      let reqClip = await fetch(`https://api.audioboom.com/audio_clips/${idPodcast}.mp3`)
 
-    return { clip }
+      if (reqClip.status >= 400){
+        res.statusCode = reqClip.status
+        return { clip: null, statusCode: reqClip.status }
+      }
+
+      let clip = (await reqClip.json()).body.audio_clip
+      //let audio = dataAudio.body.audio_clip//.urls.high_mp3
+
+      return { clip, statusCode: 202 }
+    } catch(e){
+      res.statusCode = 503
+      return { clip: null, statusCode: 503}
+    }
   }
 
   render() {
-    const { clip } = this.props
+    const { clip, statusCode } = this.props
+
+    if(statusCode !== 200){
+      return <Error statusCode={ statusCode }/>
+    }
+
     return (
       <Layout title={ clip.title }>
 

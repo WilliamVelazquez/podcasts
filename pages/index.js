@@ -1,6 +1,7 @@
 import 'isomorphic-fetch'
 
-import Error from 'next/error'
+//import Error from 'next/error'
+import Error from './_error'
 import Layout from '../components/Layout'
 import ChannelGrid from '../components/ChannelGrid'
 
