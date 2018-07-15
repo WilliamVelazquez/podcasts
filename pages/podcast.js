@@ -19,7 +19,7 @@ export default class extends React.Component{
       let clip = (await reqClip.json()).body.audio_clip
       //let audio = dataAudio.body.audio_clip//.urls.high_mp3
 
-      return { clip, statusCode: 202 }
+      return { clip, statusCode: 200 }
     } catch(e){
       res.statusCode = 503
       return { clip: null, statusCode: 503}

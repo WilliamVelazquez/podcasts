@@ -27,15 +27,12 @@ export default class PodcastList extends React.Component{
             border-bottom: 1px solid rgba(0,0,0,0.2);
             cursor: pointer;
           }
-
           .podcast:hover {
             color: #000;
           }
-
           .podcast h3 {
             margin: 0;
           }
-
           .podcast .meta {
             color: #666;
             margin-top: 0.5em;
