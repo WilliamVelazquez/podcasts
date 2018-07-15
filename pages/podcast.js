@@ -1,3 +1,4 @@
+import 'isomorphic-fetch'
 import Link from 'next/link'
 
 import Error from './_error'

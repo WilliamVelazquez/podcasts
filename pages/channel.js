@@ -1,8 +1,11 @@
+import 'isomorphic-fetch'
+
 //import Error from 'next/error'
 import Error from './_error'
 import Layout from '../components/Layout'
 import ChannelGrid from '../components/ChannelGrid'
 import PodcastListWithClick from '../components/PodcastListWithClick'
+import PodcastPlayer from '../components/PodcastPlayer'
 
 export default class extends React.Component{
 
@@ -48,6 +51,12 @@ export default class extends React.Component{
       openPodcast: podcast
     })
   }
+  closePodcast = (event) => {
+    event.preventDefault()
+    this.setState({
+      openPodcast: null
+    })
+  }
 
   render() {
     const { channel, audioClips, series, statusCode } = this.props
@@ -61,7 +70,15 @@ export default class extends React.Component{
       <Layout title={ channel.title }>
         <div className="banner" style={{ backgroundImage: `url(${channel.urls.banner_image.original})` }} />
         
-        { openPodcast && <div>Podcast abierto!</div> }
+        { 
+          openPodcast && 
+          <div className="modal">
+            <PodcastPlayer 
+              clip={ openPodcast }
+              onClose={ this.closePodcast }
+            />
+          </div> 
+        }
 
         <h1>{ channel.title }</h1>
         {
@@ -98,6 +115,14 @@ export default class extends React.Component{
             font-weight: 600;
             margin: 0;
             text-align: center;
+          }
+          .modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 99999;
           }
         `}</style>
 
